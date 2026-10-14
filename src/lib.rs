@@ -113,3 +113,12 @@ impl<'de> serde::Deserialize<'de> for DisplayName {
         Self::try_new(&value).map_err(serde::de::Error::custom)
     }
 }
+
+impl serde::Serialize for DisplayName {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_str().serialize(serializer)
+    }
+}
