@@ -22,6 +22,7 @@ pub fn get_trimmed_non_empty_string(value: &str) -> Result<&str, EmptyString> {
 ///
 /// Unlike UMLS identifiers, a display name is intended for presentation and
 /// does not uniquely identify a concept or source vocabulary entry.
+#[cfg_attr(feature = "schemars", derive(schemars::JsonSchema))]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct DisplayName(String);
 
